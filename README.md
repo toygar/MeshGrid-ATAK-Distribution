@@ -40,7 +40,8 @@ Same node hardware as MeshGrid-Node:
 
 ### Software
 
-- **ATAK-CIV** **5.5.1** (CIV) on Android — plugin API must match this version
+- **ATAK-CIV 5.5.1** (CIV) on Android — requires plugin API **`com.atakmap.app@5.5.1.CIV`**
+- **Tested with:** ATAK-CIV **5.5.1.8** (CIV). Other **5.5.1.x** builds on the same API line are expected to work; **5.4.x** and **5.6.x** are not supported by this plugin package.
 - **Python 3** + **esptool** for firmware flashing (`pip install esptool`)
 - USB data cable to the ESP32
 
@@ -144,7 +145,7 @@ Replace IDs with your actual node IDs. Without this step, inbound mesh traffic f
 | BLE connects but no mesh data | Same mesh password on ESP32; LoRa antenna and wiring |
 | ATAK chat not reaching iOS | Core **roster** includes ATAK `node=` ID on every Core node |
 | Pairing fails | Forget old Bluetooth bond; use correct 6-digit PIN |
-| Wrong ATAK version | Plugin targets **ATAK-CIV 5.5.1** |
+| Wrong ATAK version | Install **ATAK-CIV 5.5.1.x** (API `5.5.1.CIV`); tested on **5.5.1.8** |
 
 Hardware and LoRa issues: [MeshGrid-Node-Firmware troubleshooting](https://github.com/toygar/MeshGrid-Node-Firmware#troubleshooting)
 
