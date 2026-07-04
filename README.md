@@ -2,24 +2,26 @@
 
 Official **binary-only** distribution for connecting **ATAK-CIV (Android)** to the **MeshGrid** LoRa mesh network via a dedicated ESP32 node.
 
-This repository contains **prebuilt firmware and plugin packages only**. It does **not** include source code, protocol specifications, or cryptographic implementation details.
+This repository publishes **installation documentation** and **[GitHub Releases](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases)** with prebuilt binaries. It does **not** include source code, protocol specifications, or cryptographic implementation details.
 
 **Product site:** [meshgrid.org](https://meshgrid.org)  
 **Core node firmware & hardware wiring:** [MeshGrid-Node-Firmware](https://github.com/toygar/MeshGrid-Node-Firmware)  
-**Current release:** [v1.0.0](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases/tag/v1.0.0) — download binaries from **GitHub Releases** (recommended).
+**Latest release:** [v1.0.0](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases/tag/v1.0.0)
 
 ---
 
-## Package contents
+## Download
 
-> **Download:** Prefer the [v1.0.0 release assets](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases/tag/v1.0.0) on GitHub. Files in this repository root match that release.
+Download both files from the **[v1.0.0 release page](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases/tag/v1.0.0)** (Assets section):
 
-| File | Description |
-|------|-------------|
+| Asset | Description |
+|-------|-------------|
 | `MeshGrid_ESP32_ATAK_BUILD1005.bin` | ESP32 application firmware (BUILD 1005) |
-| `ATAK-Plugin-MeshGrid-0.4.0-ATAK-5.5.1-civ-release.apk` | ATAK-CIV plugin (release, minified) |
+| `ATAK-Plugin-MeshGrid-0.4.0-ATAK-5.5.1-civ-release.apk` | ATAK-CIV plugin v0.4.0 (release, minified) |
 
-### SHA-256 checksums
+Do **not** clone this repository to obtain the binaries — use **Releases** only.
+
+### SHA-256 (v1.0.0)
 
 ```
 MeshGrid_ESP32_ATAK_BUILD1005.bin
@@ -44,13 +46,17 @@ Same node hardware as MeshGrid-Node:
 ### Software
 
 - **ATAK-CIV 5.5.1** (CIV) on Android — requires plugin API **`com.atakmap.app@5.5.1.CIV`**
-- **Tested with:** ATAK-CIV **5.5.1.8** (CIV). Other **5.5.1.x** builds on the same API line are expected to work; **5.4.x** and **5.6.x** are not supported by this plugin package.
+- **Tested with:** ATAK-CIV **5.5.1.8** (CIV). Other **5.5.1.x** builds on the same API line are expected to work; **5.4.x** and **5.6.x** are not supported by this release.
 - **Python 3** + **esptool** for firmware flashing (`pip install esptool`)
 - USB data cable to the ESP32
+
+No Android Studio, ATAK SDK, or build tools are required for end users — install the prebuilt plugin APK from Releases.
 
 ---
 
 ## 1. Flash ESP32 firmware
+
+Download `MeshGrid_ESP32_ATAK_BUILD1005.bin` from [v1.0.0](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases/tag/v1.0.0) first.
 
 ### Find the serial port
 
@@ -62,7 +68,7 @@ Same node hardware as MeshGrid-Node:
 
 ### Flash (application image at `0x10000`)
 
-Use this when the board already has a compatible MeshGrid partition layout, or after a previous MeshGrid/ATAK PlatformIO flash:
+Use this when the board already has a compatible MeshGrid partition layout, or after a previous MeshGrid/ATAK firmware flash:
 
 ```bash
 esptool.py --chip esp32 --port <PORT> --baud 460800 \
@@ -101,12 +107,16 @@ After provisioning:
 
 ## 3. Install ATAK plugin
 
-1. Install **ATAK-CIV 5.5.1** on the Android device
+Download `ATAK-Plugin-MeshGrid-0.4.0-ATAK-5.5.1-civ-release.apk` from [v1.0.0](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases/tag/v1.0.0).
+
+1. Install **ATAK-CIV 5.5.1.x** on the Android device (see [Requirements](#software))
 2. Install the plugin APK:
 
    ```bash
    adb install -r ATAK-Plugin-MeshGrid-0.4.0-ATAK-5.5.1-civ-release.apk
    ```
+
+   Or copy the APK to the device and open it with a file manager (if your device policy allows sideloading).
 
 3. ATAK → **Settings → Tool Preferences → Installed Plugins** → enable **MeshGrid**
 4. Open **Tools → MeshGrid**
@@ -156,7 +166,7 @@ Hardware and LoRa issues: [MeshGrid-Node-Firmware troubleshooting](https://githu
 
 ## License and redistribution
 
-These binaries are **proprietary**. Unauthorized copying, modification, reverse engineering, or redistribution is not permitted except as explicitly authorized by the copyright holder.
+Binaries distributed via [GitHub Releases](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases) are **proprietary**. Unauthorized copying, modification, reverse engineering, or redistribution is not permitted except as explicitly authorized by the copyright holder.
 
 No source code, protocol documentation, or implementation details are published in this repository.
 
