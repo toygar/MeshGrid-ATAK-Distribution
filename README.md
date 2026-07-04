@@ -5,11 +5,14 @@ Official **binary-only** distribution for connecting **ATAK-CIV (Android)** to t
 This repository contains **prebuilt firmware and plugin packages only**. It does **not** include source code, protocol specifications, or cryptographic implementation details.
 
 **Product site:** [meshgrid.org](https://meshgrid.org)  
-**Core node firmware & hardware wiring:** [MeshGrid-Node-Firmware](https://github.com/toygar/MeshGrid-Node-Firmware)
+**Core node firmware & hardware wiring:** [MeshGrid-Node-Firmware](https://github.com/toygar/MeshGrid-Node-Firmware)  
+**Current release:** [v1.0.0](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases/tag/v1.0.0) — download binaries from **GitHub Releases** (recommended).
 
 ---
 
 ## Package contents
+
+> **Download:** Prefer the [v1.0.0 release assets](https://github.com/toygar/MeshGrid-ATAK-Distribution/releases/tag/v1.0.0) on GitHub. Files in this repository root match that release.
 
 | File | Description |
 |------|-------------|
